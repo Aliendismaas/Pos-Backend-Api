@@ -21,20 +21,4 @@ COPY --from=build /build/target/pos-system-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
 
 # Run the application
-ENTRYPOINT ["java", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
-```
-
----
-
-## Step 2: Create .dockerignore File
-
-Also create `.dockerignore` in your project root:
-```
-target/
-.mvn/
-*.iml
-.idea/
-.git/
-.gitignore
-*.md
-.env
+ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT:-8080} -jar app.jar"]
