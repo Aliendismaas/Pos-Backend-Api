@@ -44,9 +44,9 @@ razorpay:
 
 stripe:
   api:
-    key: ""
+    key:
   publishable:
-    key: ""
+    key:
 
 gemini:
   api:
