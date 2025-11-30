@@ -42,11 +42,11 @@ razorpay:
 
 
 
-stripe:
-  api:
-    key:
-  publishable:
-    key:
+#stripe:
+#  api:
+#    key:
+#  publishable:
+#    key:
 
 gemini:
   api:
