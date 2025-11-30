@@ -1,0 +1,40 @@
+# Build stage
+FROM maven:3.9-eclipse-temurin-17 AS build
+WORKDIR /build
+
+# Copy pom.xml and download dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+# Copy source code and build
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Runtime stage
+FROM eclipse-temurin:17-jre-jammy
+WORKDIR /app
+
+# Copy the built jar from build stage
+COPY --from=build /build/target/pos-system-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose port
+EXPOSE 8080
+
+# Run the application
+ENTRYPOINT ["java", "-Dserver.port=${PORT:-8080}", "-jar", "app.jar"]
+```
+
+---
+
+## Step 2: Create .dockerignore File
+
+Also create `.dockerignore` in your project root:
+```
+target/
+.mvn/
+*.iml
+.idea/
+.git/
+.gitignore
+*.md
+.env
