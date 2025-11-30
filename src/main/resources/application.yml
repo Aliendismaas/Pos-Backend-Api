@@ -1,0 +1,67 @@
+spring:
+  profiles:
+    active: prod
+
+  application:
+    name: pos-system
+
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:pos_db}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:Mysql@2025}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your email
+    password: your gmail app password
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  devtools:
+    livereload:
+      enabled: true
+
+server:
+  port: 5000
+
+razorpay:
+  api:
+    key: your razorpay key
+    secret: provide yor razorpay secrate
+
+
+
+stripe:
+  api:
+    key: "sk_test_51OLLxYIsidHSAe6gP9uNr5J2wHmWnc4ZEdIHWi8B71tMBgJp1982PPLGbNz4vtdsgLMMtt9czgAwt3J3YomJKcwX00rLM4qKFr"
+  publishable:
+    key: "pk_test_51OLLxYIsidHSAe6gli3Y0pA7E7HEcSNY0Q6q4Gf2BHx0hsl5a5I9mPE6h4riDJtETjUjSx53IpyL2YoblUkLAY4v000s5BvAKf"
+
+gemini:
+  api:
+    key: provide your gemin api key optional
+
+app:
+  frontend:
+    reset-url: http://localhost:5173/auth/reset-password?token=
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: TRACE
+

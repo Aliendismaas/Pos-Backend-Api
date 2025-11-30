@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: pos-system
+
+  datasource:
+    url: jdbc:postgresql://dpg-d4m793idbo4c73aheb70-a.oregon-postgres.render.com/pos_db_ujl7
+    driver-class-name: org.postgresql.Driver
+    username: pos_db_ujl7_user
+    password: uUte0FijlWeB2RZOYxT0xSmNnAzoR16j
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 5000
