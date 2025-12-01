@@ -54,9 +54,7 @@ public class SecurityConfig {
 				cfg.setAllowedOrigins(Arrays.asList(
 						"http://localhost:3000",
 						"http://localhost:5173",
-						"https://zosh-pos.vercel.app",
-						"https://pos-sytem-bcs6.vercel.app",
-                        "https://2a57d8640a29.ngrok-free.app"
+						"https://pesaflow-pos.vercel.app"
 				));
 				cfg.setAllowedMethods(Collections.singletonList("*"));
 				cfg.setAllowCredentials(true);
